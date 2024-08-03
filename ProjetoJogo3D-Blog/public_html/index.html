@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo 3D - Nicolarium</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Jogo 3D</title>
     <style>
-        body { margin: 0; }
-        canvas { display: block; }
-        #welcome {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+        #welcome-message {
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
             color: white;
             font-size: 2em;
-            z-index: 1000;
+            background-color: #333;
+            z-index: 1;
         }
     </style>
 </head>
 <body>
-    <div id="welcome">
+    <div id="welcome-message">
         <div>
             <p>SEJAM BEM-VINDO</p>
             <p>AO NICOLARIUM</p>
@@ -31,6 +33,13 @@
     </div>
     <script src="node_modules/three/build/three.min.js"></script>
     <script src="node_modules/three/examples/js/controls/OrbitControls.js"></script>
-    <script src="threejs-world/world.js"></script>
+    <script src="threejs-world/scripts.js"></script>
+    <script>
+        // Remover mensagem de boas-vindas e iniciar o jogo
+        setTimeout(() => {
+            document.getElementById('welcome-message').style.display = 'none';
+            init(); // Chama a função de inicialização do jogo
+        }, 3000); // Tempo de espera em milissegundos
+    </script>
 </body>
 </html>
