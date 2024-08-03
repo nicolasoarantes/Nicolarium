@@ -4,14 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo 3D</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+        #welcome-message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            font-size: 2em;
+            background-color: #333;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
-    <!-- Carregando bibliotecas e scripts -->
+    <div id="welcome-message">
+        <div>
+            <p>SEJAM BEM-VINDO</p>
+            <p>AO NICOLARIUM</p>
+        </div>
+    </div>
+    <script src="threejs-world/libs/three.min.js"></script>
+<script src="threejs-world/libs/OrbitControls.js"></script>
+<script src="threejs-world/scripts.js"></script>
+
     <script src="node_modules/three/build/three.min.js"></script>
     <script src="node_modules/three/examples/js/controls/OrbitControls.js"></script>
-    <script src="threejs-world/world.js"></script>
-    <script src="threejs-world/NPC.js"></script>
     <script src="threejs-world/scripts.js"></script>
+    <script>
+        // Remover mensagem de boas-vindas e iniciar o jogo
+        setTimeout(() => {
+            document.getElementById('welcome-message').style.display = 'none';
+            init(); // Chama a função de inicialização do jogo
+        }, 3000); // Tempo de espera em milissegundos
+    </script>
 </body>
 </html>
